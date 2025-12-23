@@ -4,11 +4,10 @@ Sentry is an anti-spam and anti-scam Discord bot that detects coordinated, scrip
 
 ## Features
 
-- **Perceptual Image Hashing (pHash):** Detects visually similar images even if they have minor modifications.
+- **Perceptual Image Hashing (pHash):** Detects visually similar images even if they have minor modifications, but set to 100% for exact match.
 - **Automated Banning:** Automatically bans users who post images that match a global database of banned images.
 - **Role-Based Monitoring:** Configure specific roles that the bot should monitor (e.g., new members).
 - **Feedback Channel:** Dedicated channel for receiving notifications when a user is banned.
-- **Slash Commands:** Modern and easy-to-use interface for management.
 
 ## Prerequisites
 
