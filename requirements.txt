@@ -3,3 +3,7 @@ Pillow
 ImageHash
 aiosqlite
 aiohttp
+scikit-learn==1.6.1
+xgboost
+joblib
+dill

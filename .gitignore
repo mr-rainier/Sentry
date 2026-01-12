@@ -1,1 +1,4 @@
 commands/mute/*.db
+/features/mute/*.db
+/config/keys.py
+config/keys.py

@@ -16,7 +16,7 @@ class GeneralCommands(commands.Cog):
         self.db = None
 
     async def cog_load(self):
-        self.db = await aiosqlite.connect('commands/mute/mute_database.db')
+        self.db = await aiosqlite.connect('features/mute/mute_database.db')
 
     async def cog_unload(self):
         await self.db.close()

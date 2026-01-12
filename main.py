@@ -5,10 +5,9 @@ automatically remove threats to your community's safety.
 """
 
 # IMPORTS
+from config import client, keys, cogs
 import os
-from config import client
-from config import keys
-from events import general
 
 # MAIN
-client.sentry.run(os.getenv('DISCORD_TOKEN'))
+if __name__ == "__main__":
+	client.sentry.run(os.getenv('DISCORD_TOKEN'))
