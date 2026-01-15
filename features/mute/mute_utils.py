@@ -29,6 +29,13 @@ async def image_url_to_phash(url: str) -> str:
 	image = Image.open(BytesIO(data))
 	return str(imagehash.phash(image))
 
+def sync_image_url_to_phash(url: str) -> str:
+	import urllib.request
+	with urllib.request.urlopen(url) as resp:
+		data = resp.read()
+	image = Image.open(BytesIO(data))
+	return str(imagehash.phash(image))
+
 async def mute_user_for_banned_image(message, db, get_feedback_channel_func):
 	reason = 'Uploaded banned image (100% hash match)'
 

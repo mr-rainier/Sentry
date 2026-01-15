@@ -36,7 +36,8 @@ class MuteListener(commands.Cog):
 
 		for attachment in message.attachments:
 			if attachment.content_type and attachment.content_type.startswith('image/'):
-				phash = await mute_utils.image_url_to_phash(attachment.url)
+				# Run CPU-bound image hashing in a thread pool to avoid blocking the event loop
+				phash = await self.bot.loop.run_in_executor(None, mute_utils.sync_image_url_to_phash, attachment.url)
 
 				async with self.db.execute('SELECT 1 FROM banned_images WHERE phash = ?', (phash,)) as cursor:
 					if await cursor.fetchone():

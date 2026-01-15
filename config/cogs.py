@@ -56,8 +56,5 @@ async def on_ready():
         await client.sentry.add_cog(AskListener(client.sentry))
         print("AskListener cog added.")
 
-    try:
-        synced = await client.sentry.tree.sync()
-        print(f"Synced {len(synced)} global command(s): {', '.join([cmd.name for cmd in synced])}")
-    except Exception as e:
-        print(f"Failed to sync commands: {e}")
+    # Tree syncing moved to a command or manual call to avoid high CPU on reconnections
+    # synced = await client.sentry.tree.sync()

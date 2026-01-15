@@ -28,6 +28,13 @@ class AskListener(commands.Cog):
 		self.bot = bot
 		self.message_map = {}
 
+	def _predict(self, content):
+		# VECTORIZE
+		message_vec = vectorizer.transform([content])
+		prediction = model.predict(message_vec)[0]
+		probability = model.predict_proba(message_vec)[0][1]
+		return prediction, probability
+
 	@commands.Cog.listener()
 	async def on_message(self, message):
 		if message.author.bot:
@@ -38,10 +45,8 @@ class AskListener(commands.Cog):
 				channel = self.bot.get_channel(1129475112744275988)
 				# channel = message.channel # Uncomment when ready to deploy in any channel
 
-				# VECTORIZE
-				message_vec = vectorizer.transform([message.content])
-				prediction = model.predict(message_vec)[0]
-				probability = model.predict_proba(message_vec)[0][1]
+				# Run CPU-bound prediction in a thread pool to avoid blocking the event loop
+				prediction, probability = await self.bot.loop.run_in_executor(None, self._predict, message.content)
 
 				if probability > 0.90:
 					bot_message = await channel.send(f'{message.author.mention}. Please ask your question directly, there\'s no '
@@ -53,6 +58,8 @@ class AskListener(commands.Cog):
 					bot_message = await channel.send(f'{prediction}, {probability:.2f}')
 					# Store the mapping
 					self.message_map[bot_message.id] = message.content
+					return
+				else:
 					return
 		else:
 			return
