@@ -47,7 +47,7 @@ class AskListener(commands.Cog):
 			return
 
 		if AskFeature.ask_listener_on:
-			if 3 < len(message.content) < 95:
+			if 3 < len(message.content) < 90:
 				channel = message.channel
 
 				# Run CPU-bound prediction in a thread pool to avoid blocking the event loop
@@ -55,7 +55,7 @@ class AskListener(commands.Cog):
 					None, self._predict, message.content
 				)
 
-				if probability > 0.90:
+				if probability > 0.93:
 					bot_message = await channel.send(
 						f'{message.author.mention}. Please ask your question directly, there\'s no '
 						f'need to ask to ask! :) {prediction}, {probability:.2f}'
