@@ -47,7 +47,7 @@ class AskListener(commands.Cog):
 			return
 
 		if AskFeature.ask_listener_on:
-			if len(message.content) > 0:
+			if 3 < len(message.content) < 90:
 				channel = message.channel
 
 				# Run CPU-bound prediction in a thread pool to avoid blocking the event loop
