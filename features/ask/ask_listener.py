@@ -37,7 +37,7 @@ class AskListener(commands.Cog):
 
 		prediction = self.model.predict(message_vec)[0]
 		probabilities = self.model.predict_proba(message_vec)[0]
-		probability = probabilities[prediction]
+		probability = probabilities[1]
 
 		return prediction, probability
 
@@ -63,7 +63,7 @@ class AskListener(commands.Cog):
 					# Store the mapping
 					self.message_map[bot_message.id] = message.content
 					return
-				elif probability > 0.10:
+				elif probability > 0.30:
 					bot_message = await channel.send(f'{prediction}, {probability:.2f}')
 					# Store the mapping
 					self.message_map[bot_message.id] = message.content
