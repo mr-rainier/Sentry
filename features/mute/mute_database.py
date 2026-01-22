@@ -23,7 +23,7 @@ class MuteDatabase:
 	async def initialize(self):
 		"""Initialize the database connection and create tables"""
 		if self._db is None:
-			self._db = await aiosqlite.connect(os.path.expanduser('~/Sentry/features/mute/mute_database.db'))
+			self._db = await aiosqlite.connect(os.path.expanduser('~/Database/mute_database.db'))
 
 			await self._db.execute('''
                                    CREATE TABLE IF NOT EXISTS image_hashes (
