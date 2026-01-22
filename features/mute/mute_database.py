@@ -5,10 +5,12 @@ automatically remove threats to your community's safety.
 """
 
 # IMPORTS
+import os
 import aiosqlite
 import aiohttp
 from discord.ext import commands
 
+# DATABSE
 class MuteDatabase:
 	_instance = None
 	_db = None
@@ -21,7 +23,7 @@ class MuteDatabase:
 	async def initialize(self):
 		"""Initialize the database connection and create tables"""
 		if self._db is None:
-			self._db = await aiosqlite.connect('features/mute/mute_database.db')
+			self._db = await aiosqlite.connect(os.path.expanduser('~/Sentry/features/mute/mute_database.db'))
 
 			await self._db.execute('''
                                    CREATE TABLE IF NOT EXISTS image_hashes (

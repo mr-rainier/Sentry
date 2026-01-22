@@ -8,7 +8,6 @@ automatically remove threats to your community's safety.
 from discord import app_commands
 from discord.ext import commands
 
-# COMMANDS
 class AskFeature(commands.Cog):
 	def __init__(self, bot):
 		self.bot = bot

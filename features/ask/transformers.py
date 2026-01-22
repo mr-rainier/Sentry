@@ -1,4 +1,11 @@
 # Claude generated
+"""
+Sentry - January 19, 2025
+Sentry is an anti-spam and anti-scam bot that detects coordinated, script-enabled malicious activity to
+automatically remove threats to your community's safety.
+"""
+
+# IMPORTS
 from sklearn.base import BaseEstimator, TransformerMixin
 import pandas as pd
 import numpy as np

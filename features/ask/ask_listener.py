@@ -55,16 +55,12 @@ class AskListener(commands.Cog):
 					None, self._predict, message.content
 				)
 
-				if probability > 0.93:
+				# Lecture the person asking to ask
+				if probability > 0.95:
 					bot_message = await channel.send(
 						f'{message.author.mention}. Please ask your question directly, there\'s no '
-						f'need to ask to ask! :) {prediction}, {probability:.2f}'
+						f'need to ask to ask! :)'
 					)
-					# Store the mapping
-					self.message_map[bot_message.id] = message.content
-					return
-				elif probability > 0.30:
-					bot_message = await channel.send(f'{prediction}, {probability:.2f}')
 					# Store the mapping
 					self.message_map[bot_message.id] = message.content
 					return

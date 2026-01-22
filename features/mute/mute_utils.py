@@ -13,9 +13,10 @@ import imagehash
 from io import BytesIO
 import aiohttp
 
-# Shared session for all modules
+# SHARED
 _session = None
 
+# UTILITIES
 def get_session():
 	global _session
 	if _session is None:

@@ -10,3 +10,4 @@ dill
 pandas
 scipy
 numpy
+pm2

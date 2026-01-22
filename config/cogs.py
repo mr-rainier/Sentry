@@ -55,6 +55,3 @@ async def on_ready():
         print("Adding AskListener cog...")
         await client.sentry.add_cog(AskListener(client.sentry))
         print("AskListener cog added.")
-
-    # Tree syncing moved to a command or manual call to avoid high CPU on reconnections
-    # synced = await client.sentry.tree.sync()

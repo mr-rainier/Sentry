@@ -10,6 +10,7 @@ from discord.ext import commands
 from discord import app_commands
 import aiosqlite
 
+# GENERAL
 class GeneralCommands(commands.Cog):
     def __init__(self, bot):
         self.bot = bot

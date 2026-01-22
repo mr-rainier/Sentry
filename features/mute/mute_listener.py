@@ -9,6 +9,7 @@ from discord.ext import commands
 from features.mute.mute_database import MuteDatabase
 from features.mute import mute_utils
 
+# LISTENER
 class MuteListener(commands.Cog):
 	def __init__(self, bot):
 		self.bot = bot
