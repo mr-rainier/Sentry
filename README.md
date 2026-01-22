@@ -47,7 +47,10 @@ pip install -r requirements.txt
 ### 2. Configuration
 Create/Update `config/keys.py` with your bot credentials:
 ```python
-DISCORD_TOKEN = 'your-token-here'
+os.environ['DISCORD_DEVELOPER_ID'] = ''
+os.environ['DISCORD_BOT_ID'] = ''
+os.environ['DISCORD_TOKEN'] = ''
+os.environ['DISCORD_SECRET'] = ''
 ```
 
 ### 3. Running the Bot
