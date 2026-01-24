@@ -58,7 +58,7 @@ class AskListener(commands.Cog):
 				# Lecture the person asking to ask
 				if probability > 0.95:
 					bot_message = await channel.send(
-						f'{message.author.mention}. Please ask your question directly, there\'s no '
+						f'{message.author.mention}. *HONK!* Ask your question directly, there\'s no '
 						f'need to ask to ask! :)'
 					)
 					# Store the mapping
